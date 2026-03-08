@@ -2,6 +2,7 @@ import './index.css'
 import { Hero } from './sections/Hero'
 import { About } from './sections/About'
 import { Projects } from './sections/Projects'
+import { Experience } from './sections/Experience'
 import { Awards } from './sections/Awards'
 import { Contact } from './sections/Contact'
 
@@ -11,6 +12,7 @@ function App() {
       <Hero />
       <About />
       <Projects />
+      <Experience />
       <Awards />
       <Contact />
     </main>

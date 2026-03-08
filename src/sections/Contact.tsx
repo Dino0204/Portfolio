@@ -26,27 +26,24 @@ export function Contact() {
       ref={ref as React.RefObject<HTMLElement>}
       className={`py-32 px-6 md:px-16 lg:px-24 max-w-5xl mx-auto w-full fade-up-scroll ${inView ? "is-visible" : ""}`}
     >
-      <p className="text-[11px] font-medium tracking-[0.15em] uppercase text-muted mb-4">
+      <p className="text-[11px] font-medium tracking-[0.15em] uppercase text-muted mb-12">
         Contact
       </p>
-      <h2 className="text-[48px] font-bold leading-[1.1] text-foreground mb-16">
-        연락하기
-      </h2>
 
-      <div className="space-y-3 mb-12">
-        <a
-          href="mailto:kimjoonhyeok.dino@gmail.com"
-          className="block text-[18px] font-normal leading-[1.6] text-foreground hover:text-accent transition-colors duration-200"
-        >
-          kimjoonhyeok.dino@gmail.com
-        </a>
-        <a
-          href="tel:01082176450"
-          className="block text-[18px] font-normal leading-[1.6] text-muted hover:text-foreground transition-colors duration-200"
-        >
-          010-8217-6450
-        </a>
-      </div>
+      {/* 이메일 헤드라인 */}
+      <a
+        href="mailto:kimjoonhyeok.dino@gmail.com"
+        className="block text-[clamp(1.5rem,4vw,3rem)] font-bold leading-[1.1] text-foreground hover:text-accent transition-colors duration-300 mb-4 break-all"
+      >
+        kimjoonhyeok.dino@gmail.com
+      </a>
+
+      <a
+        href="tel:01082176450"
+        className="block text-[16px] font-normal text-muted hover:text-foreground transition-colors duration-200 mb-12"
+      >
+        010-8217-6450
+      </a>
 
       <div className="flex flex-wrap gap-3 mb-32">
         {SOCIAL_LINKS.map(({ label, href, colorClass }) => (
