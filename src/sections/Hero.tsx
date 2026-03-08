@@ -56,7 +56,7 @@ export function Hero() {
             Frontend Developer
           </p>
           <p className="text-[14px] font-normal leading-[1.5] text-muted mt-1">
-            광주소프트웨어마이스터고등학교 재학
+            광주소프트웨어마이스터고등학교
           </p>
         </div>
 
