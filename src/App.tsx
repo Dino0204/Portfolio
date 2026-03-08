@@ -5,8 +5,13 @@ import { Projects } from './sections/Projects'
 import { Experience } from './sections/Experience'
 import { Awards } from './sections/Awards'
 import { Contact } from './sections/Contact'
+import { useActiveSection } from './hooks/useActiveSection'
+
+const SECTION_IDS = ['hero', 'about', 'projects', 'experience', 'awards', 'contact']
 
 function App() {
+  useActiveSection(SECTION_IDS)
+
   return (
     <main className="bg-background text-foreground min-h-screen">
       <Hero />

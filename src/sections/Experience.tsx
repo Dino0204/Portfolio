@@ -56,6 +56,7 @@ export function Experience() {
 
   return (
     <section
+      id="experience"
       ref={ref}
       className={`py-32 px-6 md:px-16 lg:px-24 max-w-5xl mx-auto w-full fade-up-scroll ${inView ? "is-visible" : ""}`}
     >

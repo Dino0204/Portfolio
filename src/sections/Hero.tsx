@@ -27,7 +27,7 @@ export function Hero() {
       </nav>
 
       {/* Hero */}
-      <section className="min-h-screen flex flex-col justify-center px-6 md:px-16 lg:px-24 max-w-5xl mx-auto pt-16 w-full">
+      <section id="hero" className="min-h-screen flex flex-col justify-center px-6 md:px-16 lg:px-24 max-w-5xl mx-auto pt-16 w-full">
         {/* Name block */}
         <div
           className="mb-6"

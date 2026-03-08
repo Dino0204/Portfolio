@@ -48,6 +48,7 @@ export function Awards() {
 
   return (
     <section
+      id="awards"
       ref={ref as React.RefObject<HTMLElement>}
       className={`py-32 px-6 md:px-16 lg:px-24 max-w-5xl mx-auto w-full fade-up-scroll ${inView ? "is-visible" : ""}`}
     >
