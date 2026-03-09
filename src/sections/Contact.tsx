@@ -26,10 +26,10 @@ const SOCIAL_LINKS = [
   },
   {
     label: "Portfolio · Download",
-    href: "/김준혁_포트폴리오.pdf",
+    href: "/portfolio.pdf",
     colorClass:
       "text-red-500 border-red-500 hover:bg-red-500 hover:text-red-500",
-    download: "김준혁_포트폴리오.pdf",
+    download: "김준혁포트폴리오.pdf",
   },
 ];
 
