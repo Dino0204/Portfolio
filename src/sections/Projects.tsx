@@ -2,6 +2,23 @@ import { Github } from "../assets/Github";
 import { LiquidGlassButton } from "../components/LiquidGlassButton";
 import { useInView } from "../hooks/useInView";
 
+const SIDE_PROJECTS = [
+  {
+    name: "SSD",
+    description: "IoT 기반 독거노인 고립 방지 시스템",
+    role: "Frontend Developer",
+    github: "https://github.com/HangeonCare",
+    skills: ["React Native", "Raspberry Pi", "TypeScript"],
+  },
+  {
+    name: "RE-World",
+    description: "Web Based BattleRoyale FPS",
+    role: "FullStack Developer",
+    github: "https://github.com/Dino0204/RE-World",
+    skills: ["React Three Fiber", "Elysia.js", "Zod"],
+  },
+];
+
 const PROJECTS = [
   {
     num: "01",
@@ -123,6 +140,57 @@ export function Projects() {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* 사이드 프로젝트 서브 섹션 */}
+      <div className="border-t border-border mt-16 pt-10">
+        <p className="text-[11px] font-medium tracking-[0.15em] uppercase text-muted mb-8">
+          Other Projects
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {SIDE_PROJECTS.map((project, i) => (
+            <div
+              key={project.name}
+              className={`border border-border rounded-lg p-5 group hover:border-accent/40 transition-colors stagger-child ${inView ? "is-visible" : ""}`}
+              style={
+                {
+                  "--stagger-delay": `${(PROJECTS.length + i) * 60}ms`,
+                } as React.CSSProperties
+              }
+            >
+              <div className="flex items-start justify-between gap-2 mb-2">
+                <h3 className="text-[18px] font-semibold text-foreground group-hover:text-accent transition-colors duration-300">
+                  {project.name}
+                </h3>
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="shrink-0 text-muted hover:text-foreground transition-colors duration-200"
+                    aria-label={`${project.name} GitHub`}
+                  >
+                    <Github />
+                  </a>
+                )}
+              </div>
+              <p className="text-[13px] text-muted mb-1">
+                {project.description}
+              </p>
+              <p className="text-[12px] text-muted mb-3">{project.role}</p>
+              <div className="flex flex-wrap gap-2">
+                {project.skills.map((skill) => (
+                  <LiquidGlassButton
+                    key={skill}
+                    className="px-2 py-0.5 text-[12px]"
+                  >
+                    {skill}
+                  </LiquidGlassButton>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
