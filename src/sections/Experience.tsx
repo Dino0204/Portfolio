@@ -4,27 +4,32 @@ const ACTIVITIES = [
   {
     title: "제 28회 앱잼",
     period: "2024",
-    description: "전국 규모 해커톤 참가",
+    description:
+      "“교외의 개발은 어떻게 진행될까?”라는 호기심에서 참여한 앱잼은 많은 경험을 얻을 수 있는 해커톤이였습니다. 다양한 나이, 직무의 개발자분들을 만나며 많은 소통을 할 수 있는 좋은 기회였습니다.",
   },
   {
     title: "Frontend Study",
     period: "2024 — 진행중",
-    description: "광주소마고 프론트엔드 스터디 운영",
+    description:
+      "광주소마고 프론트엔드 스터디 참여  · 졸업생 선배, 후배들과 함께 프론트엔드 소식을 공유하고 매주 블로그 발표 활동을 합니다.",
   },
   {
     title: "대한민국 SW 융합 해커톤 대회",
     period: "2025",
-    description: "세종 개최 전국 SW 해커톤 참가",
+    description:
+      "GSMC 프로젝트에 학생들의 활동을 바탕으로 포트폴리오 초안을 작성해주는 Multi Agent 기반의 AI를 구축하였습니다.",
   },
   {
     title: "R3F로 배우는 인터렉티브 3D 웹 개발",
     period: "2025",
-    description: "React Three Fiber 강의 수료",
+    description:
+      "한태재님의 React Three fiber(R3F)로 배우는 인터렉티브 3D 웹 개발 강의를 수료하였습니다.",
   },
   {
     title: "AI TECH+",
     period: "2025",
-    description: "김대중컨벤션센터 · GSMC 부스 발표",
+    description:
+      "기업체, 일반인분 등을 대상으로 GSMC 프로젝트에 대한 설명과 발표를 맡았습니다.",
   },
 ];
 
@@ -78,7 +83,9 @@ export function Experience() {
               <div
                 key={title}
                 className={`py-5 stagger-child ${inView ? "is-visible" : ""}`}
-                style={{ "--stagger-delay": `${i * 60}ms` } as React.CSSProperties}
+                style={
+                  { "--stagger-delay": `${i * 60}ms` } as React.CSSProperties
+                }
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1 min-w-0">
@@ -102,28 +109,6 @@ export function Experience() {
         <div className="flex flex-col gap-12">
           <div>
             <p className="text-[11px] font-medium tracking-[0.15em] uppercase text-muted mb-6">
-              Certifications
-            </p>
-            <div className="divide-y divide-border">
-              {CERTIFICATIONS.map(({ title, score }, i) => (
-                <div
-                  key={title}
-                  className={`py-5 stagger-child ${inView ? "is-visible" : ""}`}
-                  style={{ "--stagger-delay": `${(i + ACTIVITIES.length) * 60}ms` } as React.CSSProperties}
-                >
-                  <p className="text-[15px] font-semibold text-foreground leading-[1.4]">
-                    {title}
-                  </p>
-                  <p className="text-[13px] font-normal text-muted mt-0.5">
-                    {score}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <p className="text-[11px] font-medium tracking-[0.15em] uppercase text-muted mb-6">
               Open Source
             </p>
             <div className="divide-y divide-border">
@@ -131,7 +116,11 @@ export function Experience() {
                 <div
                   key={title}
                   className={`py-5 stagger-child ${inView ? "is-visible" : ""}`}
-                  style={{ "--stagger-delay": `${(i + ACTIVITIES.length + CERTIFICATIONS.length) * 60}ms` } as React.CSSProperties}
+                  style={
+                    {
+                      "--stagger-delay": `${(i + ACTIVITIES.length + CERTIFICATIONS.length) * 60}ms`,
+                    } as React.CSSProperties
+                  }
                 >
                   <a
                     href={url}
@@ -161,6 +150,31 @@ export function Experience() {
                       <path d="M7 17L17 7M17 7H7M17 7v10" />
                     </svg>
                   </a>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div>
+            <p className="text-[11px] font-medium tracking-[0.15em] uppercase text-muted mb-6">
+              Certifications
+            </p>
+            <div className="divide-y divide-border">
+              {CERTIFICATIONS.map(({ title, score }, i) => (
+                <div
+                  key={title}
+                  className={`py-5 stagger-child ${inView ? "is-visible" : ""}`}
+                  style={
+                    {
+                      "--stagger-delay": `${(i + ACTIVITIES.length) * 60}ms`,
+                    } as React.CSSProperties
+                  }
+                >
+                  <p className="text-[15px] font-semibold text-foreground leading-[1.4]">
+                    {title}
+                  </p>
+                  <p className="text-[13px] font-normal text-muted mt-0.5">
+                    {score}
+                  </p>
                 </div>
               ))}
             </div>
