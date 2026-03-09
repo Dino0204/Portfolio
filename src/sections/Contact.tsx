@@ -122,10 +122,17 @@ export function Contact() {
 
         <a
           href="tel:01082176450"
-          className="block text-[16px] font-normal text-muted hover:text-foreground transition-colors duration-200 mb-12"
+          className="block text-[16px] font-normal text-muted hover:text-foreground transition-colors duration-200 mb-4"
         >
           010-8217-6450
         </a>
+
+        <p className="text-[14px] font-normal leading-normal text-muted mb-12">
+          미처 담지 못한 내용은{" "}
+          <span className="text-foreground font-medium">면접</span>과{" "}
+          <span className="text-foreground font-medium">피그마 포트폴리오</span>
+          에서 직접 보여드리겠습니다. 감사합니다.
+        </p>
 
         <div className="flex flex-wrap gap-3 mb-32">
           {SOCIAL_LINKS.map(({ label, href, colorClass, download }) => (
