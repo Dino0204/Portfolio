@@ -1,16 +1,23 @@
-import './index.css'
-import { Hero } from './sections/Hero'
-import { About } from './sections/About'
-import { Projects } from './sections/Projects'
-import { Experience } from './sections/Experience'
-import { Awards } from './sections/Awards'
-import { Contact } from './sections/Contact'
-import { useActiveSection } from './hooks/useActiveSection'
+import "./index.css";
+import { About } from "./sections/About";
+import { Projects } from "./sections/Projects";
+import { Experience } from "./sections/Experience";
+import { Awards } from "./sections/Awards";
+import { Contact } from "./sections/Contact";
+import { useActiveSection } from "./hooks/useActiveSection";
+import { Hero } from "./sections/Hero";
 
-const SECTION_IDS = ['hero', 'about', 'projects', 'experience', 'awards', 'contact']
+const SECTION_IDS = [
+  "hero",
+  "about",
+  "projects",
+  "experience",
+  "awards",
+  "contact",
+];
 
 function App() {
-  useActiveSection(SECTION_IDS)
+  useActiveSection(SECTION_IDS);
 
   return (
     <main className="bg-background text-foreground min-h-screen">
@@ -21,7 +28,7 @@ function App() {
       <Awards />
       <Contact />
     </main>
-  )
+  );
 }
 
-export default App
+export default App;
