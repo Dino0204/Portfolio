@@ -8,7 +8,7 @@
   /* Neutral */
   --background: #f9f9f8;
   --surface: #ffffff;
-  --foreground: #0c0c0b;
+  --foreground: #17171b;
   --muted-foreground: #71716a;
   --border: #e5e5e1;
 
@@ -34,13 +34,16 @@
 }
 
 [data-theme="dark"] {
-  --background: #0c0c0b;
+  --background: #17171b;
   --surface: #161614;
   --foreground: #f9f9f8;
   --muted-foreground: #9b9b93;
   --border: #262624;
+
   --accent: #60a5fa;
-  --accent-foreground: #0c0c0b;
+  --accent-foreground: #17171b;
+
+  --github: #f9f9f8;
 }
 
 /* ─── Tailwind Theme Mapping ────────────────────────────────── */
