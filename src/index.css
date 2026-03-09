@@ -1,5 +1,5 @@
+@import url("https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/variable/woff2/SUIT-Variable.css");
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
-@import url("https://cdn.jsdelivr.net/gh/sunn-us/SUIT@latest/fonts/variable/SUIT-Variable.min.css");
 
 @import "tailwindcss";
 
@@ -86,8 +86,12 @@
 
 /* ─── Animations ────────────────────────────────────────────── */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fade-up {
@@ -117,7 +121,8 @@
 .fade-up-scroll {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+  transition:
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .fade-up-scroll.is-visible {
@@ -129,7 +134,8 @@
 .stagger-child {
   opacity: 0;
   transform: translateY(12px);
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+  transition:
+    opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   transition-delay: var(--stagger-delay, 0ms);
 }

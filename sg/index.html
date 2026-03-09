@@ -1,592 +1,964 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Style Guide — 김준혁 포트폴리오</title>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-  <style>
-    @import url('https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css');
-    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css');
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Style Guide — 김준혁 포트폴리오</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <style>
+      @import url("https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/variable/woff2/SUIT-Variable.css");
+      @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css");
 
-    :root {
-      --background: #F9F9F8;
-      --surface: #FFFFFF;
-      --foreground: #0C0C0B;
-      --muted-foreground: #71716A;
-      --border: #E5E5E1;
-      --accent: #1E3A8A;
-      --accent-foreground: #FFFFFF;
-      --github: #24292E;
-      --tistory: #EB531F;
-      --velog: #20C997;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
-      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-      --shadow-lg: 0 12px 32px rgba(0,0,0,0.12);
-      --radius-sm: 4px;
-      --radius-md: 8px;
-      --radius-lg: 12px;
-    }
+      :root {
+        --background: #f9f9f8;
+        --surface: #ffffff;
+        --foreground: #0c0c0b;
+        --muted-foreground: #71716a;
+        --border: #e5e5e1;
+        --accent: #1e3a8a;
+        --accent-foreground: #ffffff;
+        --github: #24292e;
+        --tistory: #eb531f;
+        --velog: #20c997;
+        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+        --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+        --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
+        --radius-sm: 4px;
+        --radius-md: 8px;
+        --radius-lg: 12px;
+      }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-    body {
-      background: var(--background);
-      color: var(--foreground);
-      font-family: 'SUIT Variable', 'Pretendard Variable', sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
-      padding: 64px;
-      max-width: 1200px;
-    }
+      body {
+        background: var(--background);
+        color: var(--foreground);
+        font-family: "SUIT Variable", "Pretendard Variable", sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        padding: 64px;
+        max-width: 1200px;
+      }
 
-    /* ── Section header ── */
-    .sg-section {
-      margin-bottom: 80px;
-    }
-    .sg-title {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted-foreground);
-      margin-bottom: 24px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--border);
-    }
+      /* ── Section header ── */
+      .sg-section {
+        margin-bottom: 80px;
+      }
+      .sg-title {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted-foreground);
+        margin-bottom: 24px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border);
+      }
 
-    /* ── SG label ── */
-    .sg-label {
-      font-size: 11px;
-      color: var(--muted-foreground);
-      margin-top: 8px;
-      font-family: 'Pretendard Variable', monospace;
-    }
+      /* ── SG label ── */
+      .sg-label {
+        font-size: 11px;
+        color: var(--muted-foreground);
+        margin-top: 8px;
+        font-family: "Pretendard Variable", monospace;
+      }
 
-    /* ── Page title ── */
-    .page-heading {
-      font-size: 32px;
-      font-weight: 700;
-      color: var(--foreground);
-      margin-bottom: 8px;
-    }
-    .page-sub {
-      font-size: 16px;
-      color: var(--muted-foreground);
-      margin-bottom: 64px;
-    }
+      /* ── Page title ── */
+      .page-heading {
+        font-size: 32px;
+        font-weight: 700;
+        color: var(--foreground);
+        margin-bottom: 8px;
+      }
+      .page-sub {
+        font-size: 16px;
+        color: var(--muted-foreground);
+        margin-bottom: 64px;
+      }
 
-    /* ── Color swatches ── */
-    .color-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-    .color-group {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    .color-group-label {
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted-foreground);
-      margin-bottom: 8px;
-    }
-    .swatch-pair {
-      display: flex;
-      gap: 4px;
-    }
-    .swatch {
-      width: 80px;
-      height: 64px;
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(0,0,0,0.06);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 6px 8px;
-    }
-    .swatch-name {
-      font-size: 10px;
-      font-weight: 500;
-      font-family: 'Pretendard Variable', monospace;
-      line-height: 1.2;
-    }
-    .swatch-hex {
-      font-size: 9px;
-      opacity: 0.7;
-      font-family: 'Pretendard Variable', monospace;
-    }
-    .mode-tag {
-      font-size: 9px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      opacity: 0.5;
-      margin-bottom: 2px;
-    }
+      /* ── Color swatches ── */
+      .color-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+      .color-group {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .color-group-label {
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted-foreground);
+        margin-bottom: 8px;
+      }
+      .swatch-pair {
+        display: flex;
+        gap: 4px;
+      }
+      .swatch {
+        width: 80px;
+        height: 64px;
+        border-radius: var(--radius-md);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 6px 8px;
+      }
+      .swatch-name {
+        font-size: 10px;
+        font-weight: 500;
+        font-family: "Pretendard Variable", monospace;
+        line-height: 1.2;
+      }
+      .swatch-hex {
+        font-size: 9px;
+        opacity: 0.7;
+        font-family: "Pretendard Variable", monospace;
+      }
+      .mode-tag {
+        font-size: 9px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        opacity: 0.5;
+        margin-bottom: 2px;
+      }
 
-    /* ── Type scale ── */
-    .type-row {
-      display: flex;
-      align-items: baseline;
-      gap: 24px;
-      padding: 20px 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .type-meta {
-      flex-shrink: 0;
-      width: 200px;
-    }
-    .type-token {
-      font-size: 12px;
-      font-weight: 600;
-      font-family: 'Pretendard Variable', monospace;
-      color: var(--accent);
-      margin-bottom: 2px;
-    }
-    .type-specs {
-      font-size: 11px;
-      color: var(--muted-foreground);
-      font-family: 'Pretendard Variable', monospace;
-    }
-    .type-sample {
-      color: var(--foreground);
-    }
-    .type-usage {
-      font-size: 11px;
-      color: var(--muted-foreground);
-      flex-shrink: 0;
-      align-self: center;
-    }
+      /* ── Type scale ── */
+      .type-row {
+        display: flex;
+        align-items: baseline;
+        gap: 24px;
+        padding: 20px 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .type-meta {
+        flex-shrink: 0;
+        width: 200px;
+      }
+      .type-token {
+        font-size: 12px;
+        font-weight: 600;
+        font-family: "Pretendard Variable", monospace;
+        color: var(--accent);
+        margin-bottom: 2px;
+      }
+      .type-specs {
+        font-size: 11px;
+        color: var(--muted-foreground);
+        font-family: "Pretendard Variable", monospace;
+      }
+      .type-sample {
+        color: var(--foreground);
+      }
+      .type-usage {
+        font-size: 11px;
+        color: var(--muted-foreground);
+        flex-shrink: 0;
+        align-self: center;
+      }
 
-    /* ── Spacing ── */
-    .spacing-grid {
-      display: flex;
-      align-items: flex-end;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .spacing-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-    }
-    .spacing-bar {
-      background: var(--accent);
-      opacity: 0.2;
-      border-radius: 2px;
-      width: 100%;
-    }
-    .spacing-ruler {
-      background: var(--accent);
-      border-radius: 2px;
-      height: 4px;
-    }
-    .spacing-val {
-      font-size: 11px;
-      color: var(--muted-foreground);
-      font-family: 'Pretendard Variable', monospace;
-      text-align: center;
-    }
+      /* ── Spacing ── */
+      .spacing-grid {
+        display: flex;
+        align-items: flex-end;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .spacing-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
+      .spacing-bar {
+        background: var(--accent);
+        opacity: 0.2;
+        border-radius: 2px;
+        width: 100%;
+      }
+      .spacing-ruler {
+        background: var(--accent);
+        border-radius: 2px;
+        height: 4px;
+      }
+      .spacing-val {
+        font-size: 11px;
+        color: var(--muted-foreground);
+        font-family: "Pretendard Variable", monospace;
+        text-align: center;
+      }
 
-    /* ── Radius ── */
-    .radius-grid {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-    .radius-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 12px;
-    }
-    .radius-box {
-      width: 80px;
-      height: 80px;
-      background: var(--surface);
-      border: 2px solid var(--border);
-      box-shadow: var(--shadow-sm);
-    }
+      /* ── Radius ── */
+      .radius-grid {
+        display: flex;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+      .radius-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+      .radius-box {
+        width: 80px;
+        height: 80px;
+        background: var(--surface);
+        border: 2px solid var(--border);
+        box-shadow: var(--shadow-sm);
+      }
 
-    /* ── Shadows ── */
-    .shadow-grid {
-      display: flex;
-      gap: 32px;
-      flex-wrap: wrap;
-    }
-    .shadow-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-    }
-    .shadow-card {
-      width: 120px;
-      height: 80px;
-      background: var(--surface);
-      border-radius: var(--radius-md);
-    }
+      /* ── Shadows ── */
+      .shadow-grid {
+        display: flex;
+        gap: 32px;
+        flex-wrap: wrap;
+      }
+      .shadow-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+      }
+      .shadow-card {
+        width: 120px;
+        height: 80px;
+        background: var(--surface);
+        border-radius: var(--radius-md);
+      }
 
-    /* ── Dark mode strip ── */
-    .dark-strip {
-      background: #0C0C0B;
-      border-radius: var(--radius-lg);
-      padding: 32px;
-      margin-top: 16px;
-    }
-  </style>
-  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
-</head>
-<body>
+      /* ── Dark mode strip ── */
+      .dark-strip {
+        background: #0c0c0b;
+        border-radius: var(--radius-lg);
+        padding: 32px;
+        margin-top: 16px;
+      }
+    </style>
+    <script
+      src="https://mcp.figma.com/mcp/html-to-design/capture.js"
+      async
+    ></script>
+  </head>
+  <body>
+    <div class="page-heading">SG — Style Guide</div>
+    <div class="page-sub">김준혁 포트폴리오 · Design System · 2026</div>
 
-  <div class="page-heading">SG — Style Guide</div>
-  <div class="page-sub">김준혁 포트폴리오 · Design System · 2026</div>
+    <!-- ── COLORS ── -->
+    <div class="sg-section">
+      <div class="sg-title">Colors</div>
 
-  <!-- ── COLORS ── -->
-  <div class="sg-section">
-    <div class="sg-title">Colors</div>
-
-    <div class="color-grid">
-
-      <!-- Neutral Light -->
-      <div class="color-group">
-        <div class="color-group-label">Neutral · Light</div>
-        <div style="display:flex;flex-direction:column;gap:4px;">
-          <div class="swatch" style="background:#F9F9F8;">
-            <div class="swatch-name" style="color:#0C0C0B;">background</div>
-            <div class="swatch-hex" style="color:#0C0C0B;">#F9F9F8</div>
+      <div class="color-grid">
+        <!-- Neutral Light -->
+        <div class="color-group">
+          <div class="color-group-label">Neutral · Light</div>
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <div class="swatch" style="background: #f9f9f8">
+              <div class="swatch-name" style="color: #0c0c0b">background</div>
+              <div class="swatch-hex" style="color: #0c0c0b">#F9F9F8</div>
+            </div>
+            <div
+              class="swatch"
+              style="background: #ffffff; border: 1px solid #e5e5e1"
+            >
+              <div class="swatch-name" style="color: #0c0c0b">surface</div>
+              <div class="swatch-hex" style="color: #0c0c0b">#FFFFFF</div>
+            </div>
+            <div class="swatch" style="background: #0c0c0b">
+              <div class="swatch-name" style="color: #f9f9f8">foreground</div>
+              <div class="swatch-hex" style="color: #f9f9f8">#0C0C0B</div>
+            </div>
+            <div class="swatch" style="background: #71716a">
+              <div class="swatch-name" style="color: #fff">muted-fg</div>
+              <div class="swatch-hex" style="color: #fff">#71716A</div>
+            </div>
+            <div
+              class="swatch"
+              style="background: #e5e5e1; border: 1px solid #ccc"
+            >
+              <div class="swatch-name" style="color: #0c0c0b">border</div>
+              <div class="swatch-hex" style="color: #0c0c0b">#E5E5E1</div>
+            </div>
           </div>
-          <div class="swatch" style="background:#FFFFFF;border:1px solid #E5E5E1;">
-            <div class="swatch-name" style="color:#0C0C0B;">surface</div>
-            <div class="swatch-hex" style="color:#0C0C0B;">#FFFFFF</div>
+        </div>
+
+        <!-- Neutral Dark -->
+        <div class="color-group">
+          <div class="color-group-label">Neutral · Dark</div>
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <div class="swatch" style="background: #0c0c0b">
+              <div class="swatch-name" style="color: #f9f9f8">background</div>
+              <div class="swatch-hex" style="color: #f9f9f8">#0C0C0B</div>
+            </div>
+            <div class="swatch" style="background: #161614">
+              <div class="swatch-name" style="color: #f9f9f8">surface</div>
+              <div class="swatch-hex" style="color: #f9f9f8">#161614</div>
+            </div>
+            <div class="swatch" style="background: #f9f9f8">
+              <div class="swatch-name" style="color: #0c0c0b">foreground</div>
+              <div class="swatch-hex" style="color: #0c0c0b">#F9F9F8</div>
+            </div>
+            <div class="swatch" style="background: #9b9b93">
+              <div class="swatch-name" style="color: #fff">muted-fg</div>
+              <div class="swatch-hex" style="color: #fff">#9B9B93</div>
+            </div>
+            <div class="swatch" style="background: #262624">
+              <div class="swatch-name" style="color: #f9f9f8">border</div>
+              <div class="swatch-hex" style="color: #f9f9f8">#262624</div>
+            </div>
           </div>
-          <div class="swatch" style="background:#0C0C0B;">
-            <div class="swatch-name" style="color:#F9F9F8;">foreground</div>
-            <div class="swatch-hex" style="color:#F9F9F8;">#0C0C0B</div>
+        </div>
+
+        <!-- Accent -->
+        <div class="color-group">
+          <div class="color-group-label">Accent</div>
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <div
+              class="swatch"
+              style="background: #1e3a8a; width: 80px; height: 80px"
+            >
+              <div class="swatch-name" style="color: #fff">accent · L</div>
+              <div class="swatch-hex" style="color: #fff">#1E3A8A</div>
+            </div>
+            <div
+              class="swatch"
+              style="background: #60a5fa; width: 80px; height: 80px"
+            >
+              <div class="swatch-name" style="color: #0c0c0b">accent · D</div>
+              <div class="swatch-hex" style="color: #0c0c0b">#60A5FA</div>
+            </div>
           </div>
-          <div class="swatch" style="background:#71716A;">
-            <div class="swatch-name" style="color:#fff;">muted-fg</div>
-            <div class="swatch-hex" style="color:#fff;">#71716A</div>
-          </div>
-          <div class="swatch" style="background:#E5E5E1;border:1px solid #ccc;">
-            <div class="swatch-name" style="color:#0C0C0B;">border</div>
-            <div class="swatch-hex" style="color:#0C0C0B;">#E5E5E1</div>
+        </div>
+
+        <!-- Brand Links -->
+        <div class="color-group">
+          <div class="color-group-label">Brand Links</div>
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <div class="swatch" style="background: #24292e">
+              <div class="swatch-name" style="color: #fff">github</div>
+              <div class="swatch-hex" style="color: #fff">#24292E</div>
+            </div>
+            <div class="swatch" style="background: #eb531f">
+              <div class="swatch-name" style="color: #fff">tistory</div>
+              <div class="swatch-hex" style="color: #fff">#EB531F</div>
+            </div>
+            <div class="swatch" style="background: #20c997">
+              <div class="swatch-name" style="color: #0c0c0b">velog</div>
+              <div class="swatch-hex" style="color: #0c0c0b">#20C997</div>
+            </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- Neutral Dark -->
-      <div class="color-group">
-        <div class="color-group-label">Neutral · Dark</div>
-        <div style="display:flex;flex-direction:column;gap:4px;">
-          <div class="swatch" style="background:#0C0C0B;">
-            <div class="swatch-name" style="color:#F9F9F8;">background</div>
-            <div class="swatch-hex" style="color:#F9F9F8;">#0C0C0B</div>
-          </div>
-          <div class="swatch" style="background:#161614;">
-            <div class="swatch-name" style="color:#F9F9F8;">surface</div>
-            <div class="swatch-hex" style="color:#F9F9F8;">#161614</div>
-          </div>
-          <div class="swatch" style="background:#F9F9F8;">
-            <div class="swatch-name" style="color:#0C0C0B;">foreground</div>
-            <div class="swatch-hex" style="color:#0C0C0B;">#F9F9F8</div>
-          </div>
-          <div class="swatch" style="background:#9B9B93;">
-            <div class="swatch-name" style="color:#fff;">muted-fg</div>
-            <div class="swatch-hex" style="color:#fff;">#9B9B93</div>
-          </div>
-          <div class="swatch" style="background:#262624;">
-            <div class="swatch-name" style="color:#F9F9F8;">border</div>
-            <div class="swatch-hex" style="color:#F9F9F8;">#262624</div>
-          </div>
+    <!-- ── TYPOGRAPHY ── -->
+    <div class="sg-section">
+      <div class="sg-title">Typography · SUIT Variable</div>
+
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="type-token">display</div>
+          <div class="type-specs">80px · 700 · lh 0.95</div>
+        </div>
+        <div
+          class="type-sample"
+          style="font-size: 80px; font-weight: 700; line-height: 0.95"
+        >
+          김준혁
+        </div>
+        <div class="type-usage">Hero name</div>
+      </div>
+
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="type-token">heading-1</div>
+          <div class="type-specs">48px · 700 · lh 1.1</div>
+        </div>
+        <div
+          class="type-sample"
+          style="font-size: 48px; font-weight: 700; line-height: 1.1"
+        >
+          About Me
+        </div>
+        <div class="type-usage">Section titles</div>
+      </div>
+
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="type-token">heading-2</div>
+          <div class="type-specs">32px · 600 · lh 1.2</div>
+        </div>
+        <div
+          class="type-sample"
+          style="font-size: 32px; font-weight: 600; line-height: 1.2"
+        >
+          Projects
+        </div>
+        <div class="type-usage">Subsection headers</div>
+      </div>
+
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="type-token">heading-3</div>
+          <div class="type-specs">24px · 600 · lh 1.3</div>
+        </div>
+        <div
+          class="type-sample"
+          style="font-size: 24px; font-weight: 600; line-height: 1.3"
+        >
+          GSMC
+        </div>
+        <div class="type-usage">Card titles</div>
+      </div>
+
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="type-token">body-lg</div>
+          <div class="type-specs">18px · 400 · lh 1.6</div>
+        </div>
+        <div
+          class="type-sample"
+          style="font-size: 18px; font-weight: 400; line-height: 1.6"
+        >
+          프론트엔드 개발자를 꿈꾸는 고등학생입니다.
+        </div>
+        <div class="type-usage">Lead paragraph</div>
+      </div>
+
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="type-token">body</div>
+          <div class="type-specs">16px · 400 · lh 1.6</div>
+        </div>
+        <div
+          class="type-sample"
+          style="font-size: 16px; font-weight: 400; line-height: 1.6"
+        >
+          학교 현장에서 실제로 사용되는 서비스를 만들었습니다.
+        </div>
+        <div class="type-usage">Body text</div>
+      </div>
+
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="type-token">body-sm</div>
+          <div class="type-specs">14px · 400 · lh 1.5</div>
+        </div>
+        <div
+          class="type-sample"
+          style="font-size: 14px; font-weight: 400; line-height: 1.5"
+        >
+          광주소프트웨어마이스터고등학교 · 2027년 졸업 예정
+        </div>
+        <div class="type-usage">Secondary info</div>
+      </div>
+
+      <div class="type-row">
+        <div class="type-meta">
+          <div class="type-token">caption</div>
+          <div class="type-specs">12px · 400 · lh 1.5</div>
+        </div>
+        <div
+          class="type-sample"
+          style="font-size: 12px; font-weight: 400; line-height: 1.5"
+        >
+          Next.js · TypeScript · Tailwind CSS
+        </div>
+        <div class="type-usage">Labels, tags</div>
+      </div>
+
+      <div class="type-row" style="border-bottom: none">
+        <div class="type-meta">
+          <div class="type-token">micro</div>
+          <div class="type-specs">11px · 400 · lh 1.4</div>
+        </div>
+        <div
+          class="type-sample"
+          style="font-size: 11px; font-weight: 400; line-height: 1.4"
+        >
+          kimjoonhyeok.dino@gmail.com · 010-8217-6450
+        </div>
+        <div class="type-usage">Fine print, timestamps</div>
+      </div>
+    </div>
+
+    <!-- ── SPACING ── -->
+    <div class="sg-section">
+      <div class="sg-title">Spacing · 4px Base Unit</div>
+      <div class="spacing-grid">
+        <div class="spacing-item">
+          <div
+            style="
+              height: 4px;
+              width: 4px;
+              background: var(--accent);
+              border-radius: 2px;
+            "
+          ></div>
+          <div class="spacing-val">4</div>
+        </div>
+        <div class="spacing-item">
+          <div
+            style="
+              height: 8px;
+              width: 8px;
+              background: var(--accent);
+              opacity: 0.8;
+              border-radius: 2px;
+            "
+          ></div>
+          <div class="spacing-val">8</div>
+        </div>
+        <div class="spacing-item">
+          <div
+            style="
+              height: 12px;
+              width: 12px;
+              background: var(--accent);
+              opacity: 0.75;
+              border-radius: 2px;
+            "
+          ></div>
+          <div class="spacing-val">12</div>
+        </div>
+        <div class="spacing-item">
+          <div
+            style="
+              height: 16px;
+              width: 16px;
+              background: var(--accent);
+              opacity: 0.7;
+              border-radius: 2px;
+            "
+          ></div>
+          <div class="spacing-val">16</div>
+        </div>
+        <div class="spacing-item">
+          <div
+            style="
+              height: 20px;
+              width: 20px;
+              background: var(--accent);
+              opacity: 0.65;
+              border-radius: 2px;
+            "
+          ></div>
+          <div class="spacing-val">20</div>
+        </div>
+        <div class="spacing-item">
+          <div
+            style="
+              height: 24px;
+              width: 24px;
+              background: var(--accent);
+              opacity: 0.6;
+              border-radius: 2px;
+            "
+          ></div>
+          <div class="spacing-val">24</div>
+        </div>
+        <div class="spacing-item">
+          <div
+            style="
+              height: 32px;
+              width: 32px;
+              background: var(--accent);
+              opacity: 0.55;
+              border-radius: 2px;
+            "
+          ></div>
+          <div class="spacing-val">32</div>
+        </div>
+        <div class="spacing-item">
+          <div
+            style="
+              height: 40px;
+              width: 40px;
+              background: var(--accent);
+              opacity: 0.5;
+              border-radius: 2px;
+            "
+          ></div>
+          <div class="spacing-val">40</div>
+        </div>
+        <div class="spacing-item">
+          <div
+            style="
+              height: 48px;
+              width: 48px;
+              background: var(--accent);
+              opacity: 0.45;
+              border-radius: 2px;
+            "
+          ></div>
+          <div class="spacing-val">48</div>
+        </div>
+        <div class="spacing-item">
+          <div
+            style="
+              height: 64px;
+              width: 64px;
+              background: var(--accent);
+              opacity: 0.4;
+              border-radius: 2px;
+            "
+          ></div>
+          <div class="spacing-val">64</div>
+        </div>
+        <div class="spacing-item">
+          <div
+            style="
+              height: 80px;
+              width: 80px;
+              background: var(--accent);
+              opacity: 0.35;
+              border-radius: 2px;
+            "
+          ></div>
+          <div class="spacing-val">80</div>
+        </div>
+        <div class="spacing-item">
+          <div
+            style="
+              height: 96px;
+              width: 96px;
+              background: var(--accent);
+              opacity: 0.3;
+              border-radius: 2px;
+            "
+          ></div>
+          <div class="spacing-val">96</div>
+        </div>
+        <div class="spacing-item">
+          <div
+            style="
+              height: 128px;
+              width: 128px;
+              background: var(--accent);
+              opacity: 0.25;
+              border-radius: 2px;
+            "
+          ></div>
+          <div class="spacing-val">128</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── BORDER RADIUS ── -->
+    <div class="sg-section">
+      <div class="sg-title">Border Radius</div>
+      <div class="radius-grid">
+        <div class="radius-item">
+          <div class="radius-box" style="border-radius: 4px"></div>
+          <div class="sg-label">radius-sm · 4px<br />Tags, chips</div>
+        </div>
+        <div class="radius-item">
+          <div class="radius-box" style="border-radius: 8px"></div>
+          <div class="sg-label">radius-md · 8px<br />Cards, inputs</div>
+        </div>
+        <div class="radius-item">
+          <div class="radius-box" style="border-radius: 12px"></div>
+          <div class="sg-label">radius-lg · 12px<br />Modals</div>
+        </div>
+        <div class="radius-item">
+          <div
+            class="radius-box"
+            style="border-radius: 9999px; width: 80px; height: 80px"
+          ></div>
+          <div class="sg-label">radius-full · 9999px<br />Pills, avatars</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SHADOWS ── -->
+    <div class="sg-section">
+      <div class="sg-title">Shadows · Light Mode</div>
+      <div class="shadow-grid">
+        <div class="shadow-item">
+          <div
+            class="shadow-card"
+            style="box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06)"
+          ></div>
+          <div class="sg-label">shadow-sm<br />0 1px 3px · 6%</div>
+        </div>
+        <div class="shadow-item">
+          <div
+            class="shadow-card"
+            style="box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08)"
+          ></div>
+          <div class="sg-label">shadow-md<br />0 4px 12px · 8%</div>
+        </div>
+        <div class="shadow-item">
+          <div
+            class="shadow-card"
+            style="box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12)"
+          ></div>
+          <div class="sg-label">shadow-lg<br />0 12px 32px · 12%</div>
         </div>
       </div>
 
-      <!-- Accent -->
-      <div class="color-group">
-        <div class="color-group-label">Accent</div>
-        <div style="display:flex;flex-direction:column;gap:4px;">
-          <div class="swatch" style="background:#1E3A8A;width:80px;height:80px;">
-            <div class="swatch-name" style="color:#fff;">accent · L</div>
-            <div class="swatch-hex" style="color:#fff;">#1E3A8A</div>
+      <!-- Dark mode shadow preview -->
+      <div class="dark-strip" style="margin-top: 24px">
+        <div
+          style="
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #9b9b93;
+            margin-bottom: 20px;
+          "
+        >
+          Dark Mode Preview
+        </div>
+        <div style="display: flex; gap: 32px; flex-wrap: wrap">
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              gap: 16px;
+            "
+          >
+            <div
+              style="
+                width: 120px;
+                height: 80px;
+                background: #161614;
+                border-radius: 8px;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+              "
+            ></div>
+            <div
+              style="
+                font-size: 11px;
+                color: #9b9b93;
+                font-family: &quot;Pretendard Variable&quot;, monospace;
+              "
+            >
+              shadow-sm · D
+            </div>
           </div>
-          <div class="swatch" style="background:#60A5FA;width:80px;height:80px;">
-            <div class="swatch-name" style="color:#0C0C0B;">accent · D</div>
-            <div class="swatch-hex" style="color:#0C0C0B;">#60A5FA</div>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              gap: 16px;
+            "
+          >
+            <div
+              style="
+                width: 120px;
+                height: 80px;
+                background: #161614;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+              "
+            ></div>
+            <div
+              style="
+                font-size: 11px;
+                color: #9b9b93;
+                font-family: &quot;Pretendard Variable&quot;, monospace;
+              "
+            >
+              shadow-md · D
+            </div>
+          </div>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              gap: 16px;
+            "
+          >
+            <div
+              style="
+                width: 120px;
+                height: 80px;
+                background: #161614;
+                border-radius: 8px;
+                box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+              "
+            ></div>
+            <div
+              style="
+                font-size: 11px;
+                color: #9b9b93;
+                font-family: &quot;Pretendard Variable&quot;, monospace;
+              "
+            >
+              shadow-lg · D
+            </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- Brand Links -->
-      <div class="color-group">
-        <div class="color-group-label">Brand Links</div>
-        <div style="display:flex;flex-direction:column;gap:4px;">
-          <div class="swatch" style="background:#24292E;">
-            <div class="swatch-name" style="color:#fff;">github</div>
-            <div class="swatch-hex" style="color:#fff;">#24292E</div>
-          </div>
-          <div class="swatch" style="background:#EB531F;">
-            <div class="swatch-name" style="color:#fff;">tistory</div>
-            <div class="swatch-hex" style="color:#fff;">#EB531F</div>
-          </div>
-          <div class="swatch" style="background:#20C997;">
-            <div class="swatch-name" style="color:#0C0C0B;">velog</div>
-            <div class="swatch-hex" style="color:#0C0C0B;">#20C997</div>
-          </div>
+    <!-- ── COMPONENTS PREVIEW ── -->
+    <div class="sg-section">
+      <div class="sg-title">Component Samples</div>
+
+      <div
+        style="display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 24px"
+      >
+        <!-- Accent button -->
+        <button
+          style="
+            background: var(--accent);
+            color: var(--accent-foreground);
+            border: none;
+            border-radius: var(--radius-md);
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: &quot;SUIT Variable&quot;, sans-serif;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+          "
+        >
+          Contact Me
+        </button>
+        <!-- Ghost button -->
+        <button
+          style="
+            background: transparent;
+            color: var(--foreground);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 500;
+            font-family: &quot;SUIT Variable&quot;, sans-serif;
+            cursor: pointer;
+          "
+        >
+          View Projects
+        </button>
+        <!-- Tag chip -->
+        <span
+          style="
+            background: rgba(30, 58, 138, 0.08);
+            color: var(--accent);
+            border-radius: var(--radius-sm);
+            padding: 4px 10px;
+            font-size: 12px;
+            font-weight: 600;
+            font-family: &quot;Pretendard Variable&quot;, monospace;
+          "
+        >
+          Next.js
+        </span>
+        <span
+          style="
+            background: rgba(30, 58, 138, 0.08);
+            color: var(--accent);
+            border-radius: var(--radius-sm);
+            padding: 4px 10px;
+            font-size: 12px;
+            font-weight: 600;
+            font-family: &quot;Pretendard Variable&quot;, monospace;
+          "
+        >
+          TypeScript
+        </span>
+        <span
+          style="
+            background: rgba(30, 58, 138, 0.08);
+            color: var(--accent);
+            border-radius: var(--radius-sm);
+            padding: 4px 10px;
+            font-size: 12px;
+            font-weight: 600;
+            font-family: &quot;Pretendard Variable&quot;, monospace;
+          "
+        >
+          React Three Fiber
+        </span>
+      </div>
+
+      <!-- Project card sample -->
+      <div
+        style="
+          background: var(--surface);
+          border: 1px solid var(--border);
+          border-radius: var(--radius-lg);
+          padding: 24px;
+          max-width: 360px;
+          box-shadow: var(--shadow-md);
+        "
+      >
+        <div
+          style="
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--muted-foreground);
+            margin-bottom: 8px;
+          "
+        >
+          Project
         </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ── TYPOGRAPHY ── -->
-  <div class="sg-section">
-    <div class="sg-title">Typography · SUIT Variable</div>
-
-    <div class="type-row">
-      <div class="type-meta">
-        <div class="type-token">display</div>
-        <div class="type-specs">80px · 700 · lh 0.95</div>
-      </div>
-      <div class="type-sample" style="font-size:80px;font-weight:700;line-height:0.95;">김준혁</div>
-      <div class="type-usage">Hero name</div>
-    </div>
-
-    <div class="type-row">
-      <div class="type-meta">
-        <div class="type-token">heading-1</div>
-        <div class="type-specs">48px · 700 · lh 1.1</div>
-      </div>
-      <div class="type-sample" style="font-size:48px;font-weight:700;line-height:1.1;">About Me</div>
-      <div class="type-usage">Section titles</div>
-    </div>
-
-    <div class="type-row">
-      <div class="type-meta">
-        <div class="type-token">heading-2</div>
-        <div class="type-specs">32px · 600 · lh 1.2</div>
-      </div>
-      <div class="type-sample" style="font-size:32px;font-weight:600;line-height:1.2;">Projects</div>
-      <div class="type-usage">Subsection headers</div>
-    </div>
-
-    <div class="type-row">
-      <div class="type-meta">
-        <div class="type-token">heading-3</div>
-        <div class="type-specs">24px · 600 · lh 1.3</div>
-      </div>
-      <div class="type-sample" style="font-size:24px;font-weight:600;line-height:1.3;">GSMC</div>
-      <div class="type-usage">Card titles</div>
-    </div>
-
-    <div class="type-row">
-      <div class="type-meta">
-        <div class="type-token">body-lg</div>
-        <div class="type-specs">18px · 400 · lh 1.6</div>
-      </div>
-      <div class="type-sample" style="font-size:18px;font-weight:400;line-height:1.6;">프론트엔드 개발자를 꿈꾸는 고등학생입니다.</div>
-      <div class="type-usage">Lead paragraph</div>
-    </div>
-
-    <div class="type-row">
-      <div class="type-meta">
-        <div class="type-token">body</div>
-        <div class="type-specs">16px · 400 · lh 1.6</div>
-      </div>
-      <div class="type-sample" style="font-size:16px;font-weight:400;line-height:1.6;">학교 현장에서 실제로 사용되는 서비스를 만들었습니다.</div>
-      <div class="type-usage">Body text</div>
-    </div>
-
-    <div class="type-row">
-      <div class="type-meta">
-        <div class="type-token">body-sm</div>
-        <div class="type-specs">14px · 400 · lh 1.5</div>
-      </div>
-      <div class="type-sample" style="font-size:14px;font-weight:400;line-height:1.5;">광주소프트웨어마이스터고등학교 · 2027년 졸업 예정</div>
-      <div class="type-usage">Secondary info</div>
-    </div>
-
-    <div class="type-row">
-      <div class="type-meta">
-        <div class="type-token">caption</div>
-        <div class="type-specs">12px · 400 · lh 1.5</div>
-      </div>
-      <div class="type-sample" style="font-size:12px;font-weight:400;line-height:1.5;">Next.js · TypeScript · Tailwind CSS</div>
-      <div class="type-usage">Labels, tags</div>
-    </div>
-
-    <div class="type-row" style="border-bottom:none;">
-      <div class="type-meta">
-        <div class="type-token">micro</div>
-        <div class="type-specs">11px · 400 · lh 1.4</div>
-      </div>
-      <div class="type-sample" style="font-size:11px;font-weight:400;line-height:1.4;">kimjoonhyeok.dino@gmail.com · 010-8217-6450</div>
-      <div class="type-usage">Fine print, timestamps</div>
-    </div>
-  </div>
-
-  <!-- ── SPACING ── -->
-  <div class="sg-section">
-    <div class="sg-title">Spacing · 4px Base Unit</div>
-    <div class="spacing-grid">
-      <div class="spacing-item">
-        <div style="height:4px;width:4px;background:var(--accent);border-radius:2px;"></div>
-        <div class="spacing-val">4</div>
-      </div>
-      <div class="spacing-item">
-        <div style="height:8px;width:8px;background:var(--accent);opacity:0.8;border-radius:2px;"></div>
-        <div class="spacing-val">8</div>
-      </div>
-      <div class="spacing-item">
-        <div style="height:12px;width:12px;background:var(--accent);opacity:0.75;border-radius:2px;"></div>
-        <div class="spacing-val">12</div>
-      </div>
-      <div class="spacing-item">
-        <div style="height:16px;width:16px;background:var(--accent);opacity:0.7;border-radius:2px;"></div>
-        <div class="spacing-val">16</div>
-      </div>
-      <div class="spacing-item">
-        <div style="height:20px;width:20px;background:var(--accent);opacity:0.65;border-radius:2px;"></div>
-        <div class="spacing-val">20</div>
-      </div>
-      <div class="spacing-item">
-        <div style="height:24px;width:24px;background:var(--accent);opacity:0.6;border-radius:2px;"></div>
-        <div class="spacing-val">24</div>
-      </div>
-      <div class="spacing-item">
-        <div style="height:32px;width:32px;background:var(--accent);opacity:0.55;border-radius:2px;"></div>
-        <div class="spacing-val">32</div>
-      </div>
-      <div class="spacing-item">
-        <div style="height:40px;width:40px;background:var(--accent);opacity:0.5;border-radius:2px;"></div>
-        <div class="spacing-val">40</div>
-      </div>
-      <div class="spacing-item">
-        <div style="height:48px;width:48px;background:var(--accent);opacity:0.45;border-radius:2px;"></div>
-        <div class="spacing-val">48</div>
-      </div>
-      <div class="spacing-item">
-        <div style="height:64px;width:64px;background:var(--accent);opacity:0.4;border-radius:2px;"></div>
-        <div class="spacing-val">64</div>
-      </div>
-      <div class="spacing-item">
-        <div style="height:80px;width:80px;background:var(--accent);opacity:0.35;border-radius:2px;"></div>
-        <div class="spacing-val">80</div>
-      </div>
-      <div class="spacing-item">
-        <div style="height:96px;width:96px;background:var(--accent);opacity:0.3;border-radius:2px;"></div>
-        <div class="spacing-val">96</div>
-      </div>
-      <div class="spacing-item">
-        <div style="height:128px;width:128px;background:var(--accent);opacity:0.25;border-radius:2px;"></div>
-        <div class="spacing-val">128</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── BORDER RADIUS ── -->
-  <div class="sg-section">
-    <div class="sg-title">Border Radius</div>
-    <div class="radius-grid">
-      <div class="radius-item">
-        <div class="radius-box" style="border-radius:4px;"></div>
-        <div class="sg-label">radius-sm · 4px<br>Tags, chips</div>
-      </div>
-      <div class="radius-item">
-        <div class="radius-box" style="border-radius:8px;"></div>
-        <div class="sg-label">radius-md · 8px<br>Cards, inputs</div>
-      </div>
-      <div class="radius-item">
-        <div class="radius-box" style="border-radius:12px;"></div>
-        <div class="sg-label">radius-lg · 12px<br>Modals</div>
-      </div>
-      <div class="radius-item">
-        <div class="radius-box" style="border-radius:9999px;width:80px;height:80px;"></div>
-        <div class="sg-label">radius-full · 9999px<br>Pills, avatars</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── SHADOWS ── -->
-  <div class="sg-section">
-    <div class="sg-title">Shadows · Light Mode</div>
-    <div class="shadow-grid">
-      <div class="shadow-item">
-        <div class="shadow-card" style="box-shadow:0 1px 3px rgba(0,0,0,0.06);"></div>
-        <div class="sg-label">shadow-sm<br>0 1px 3px · 6%</div>
-      </div>
-      <div class="shadow-item">
-        <div class="shadow-card" style="box-shadow:0 4px 12px rgba(0,0,0,0.08);"></div>
-        <div class="sg-label">shadow-md<br>0 4px 12px · 8%</div>
-      </div>
-      <div class="shadow-item">
-        <div class="shadow-card" style="box-shadow:0 12px 32px rgba(0,0,0,0.12);"></div>
-        <div class="sg-label">shadow-lg<br>0 12px 32px · 12%</div>
-      </div>
-    </div>
-
-    <!-- Dark mode shadow preview -->
-    <div class="dark-strip" style="margin-top:24px;">
-      <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#9B9B93;margin-bottom:20px;">Dark Mode Preview</div>
-      <div style="display:flex;gap:32px;flex-wrap:wrap;">
-        <div style="display:flex;flex-direction:column;align-items:center;gap:16px;">
-          <div style="width:120px;height:80px;background:#161614;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.3);"></div>
-          <div style="font-size:11px;color:#9B9B93;font-family:'Pretendard Variable',monospace;">shadow-sm · D</div>
+        <div
+          style="
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 8px;
+          "
+        >
+          GSMC
         </div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:16px;">
-          <div style="width:120px;height:80px;background:#161614;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.4);"></div>
-          <div style="font-size:11px;color:#9B9B93;font-family:'Pretendard Variable',monospace;">shadow-md · D</div>
+        <div
+          style="
+            font-size: 14px;
+            color: var(--muted-foreground);
+            line-height: 1.5;
+            margin-bottom: 16px;
+          "
+        >
+          학교 인증 플랫폼 — 160+ 사용자, 92% 시간 단축
         </div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:16px;">
-          <div style="width:120px;height:80px;background:#161614;border-radius:8px;box-shadow:0 12px 32px rgba(0,0,0,0.6);"></div>
-          <div style="font-size:11px;color:#9B9B93;font-family:'Pretendard Variable',monospace;">shadow-lg · D</div>
+        <div style="display: flex; gap: 8px">
+          <span
+            style="
+              background: rgba(30, 58, 138, 0.08);
+              color: var(--accent);
+              border-radius: var(--radius-sm);
+              padding: 3px 8px;
+              font-size: 11px;
+              font-weight: 600;
+              font-family: &quot;Pretendard Variable&quot;, monospace;
+            "
+            >Next.js</span
+          >
+          <span
+            style="
+              background: rgba(30, 58, 138, 0.08);
+              color: var(--accent);
+              border-radius: var(--radius-sm);
+              padding: 3px 8px;
+              font-size: 11px;
+              font-weight: 600;
+              font-family: &quot;Pretendard Variable&quot;, monospace;
+            "
+            >TypeScript</span
+          >
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- ── COMPONENTS PREVIEW ── -->
-  <div class="sg-section">
-    <div class="sg-title">Component Samples</div>
-
-    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:24px;">
-      <!-- Accent button -->
-      <button style="background:var(--accent);color:var(--accent-foreground);border:none;border-radius:var(--radius-md);padding:10px 20px;font-size:14px;font-weight:600;font-family:'SUIT Variable',sans-serif;cursor:pointer;box-shadow:var(--shadow-sm);">
-        Contact Me
-      </button>
-      <!-- Ghost button -->
-      <button style="background:transparent;color:var(--foreground);border:1px solid var(--border);border-radius:var(--radius-md);padding:10px 20px;font-size:14px;font-weight:500;font-family:'SUIT Variable',sans-serif;cursor:pointer;">
-        View Projects
-      </button>
-      <!-- Tag chip -->
-      <span style="background:rgba(30,58,138,0.08);color:var(--accent);border-radius:var(--radius-sm);padding:4px 10px;font-size:12px;font-weight:600;font-family:'Pretendard Variable',monospace;">
-        Next.js
-      </span>
-      <span style="background:rgba(30,58,138,0.08);color:var(--accent);border-radius:var(--radius-sm);padding:4px 10px;font-size:12px;font-weight:600;font-family:'Pretendard Variable',monospace;">
-        TypeScript
-      </span>
-      <span style="background:rgba(30,58,138,0.08);color:var(--accent);border-radius:var(--radius-sm);padding:4px 10px;font-size:12px;font-weight:600;font-family:'Pretendard Variable',monospace;">
-        React Three Fiber
-      </span>
-    </div>
-
-    <!-- Project card sample -->
-    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;max-width:360px;box-shadow:var(--shadow-md);">
-      <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted-foreground);margin-bottom:8px;">Project</div>
-      <div style="font-size:24px;font-weight:600;line-height:1.3;margin-bottom:8px;">GSMC</div>
-      <div style="font-size:14px;color:var(--muted-foreground);line-height:1.5;margin-bottom:16px;">학교 인증 플랫폼 — 160+ 사용자, 92% 시간 단축</div>
-      <div style="display:flex;gap:8px;">
-        <span style="background:rgba(30,58,138,0.08);color:var(--accent);border-radius:var(--radius-sm);padding:3px 8px;font-size:11px;font-weight:600;font-family:'Pretendard Variable',monospace;">Next.js</span>
-        <span style="background:rgba(30,58,138,0.08);color:var(--accent);border-radius:var(--radius-sm);padding:3px 8px;font-size:11px;font-weight:600;font-family:'Pretendard Variable',monospace;">TypeScript</span>
-      </div>
-    </div>
-  </div>
-
-</body>
+  </body>
 </html>
