@@ -3,6 +3,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { MeshTransmissionMaterial, Environment } from "@react-three/drei";
 import { useInView } from "../hooks/useInView";
+import { LiquidGlassButton } from "../components/LiquidGlassButton";
 
 const SKILLS = [
   "Next.js",
@@ -170,16 +171,7 @@ export function About() {
 
         <div className="flex flex-wrap gap-2">
           {SKILLS.map((skill) => (
-            <button
-              key={skill}
-              className="inline-flex items-center justify-center align-middle select-none
-              font-sans font-medium text-center px-3 py-1 text-foreground text-sm rounded-full 
-              bg-white/2.5 border border-border backdrop-blur-sm shadow-[inset_0_1px_0px_rgba(255,255,255,0.75),0_0_9px_rgba(0,0,0,0.2),0_3px_8px_rgba(0,0,0,0.15)] hover:bg-white/30 transition-all duration-300 
-              before:absolute before:inset-0 before:rounded-lg before:bg-linear-to-br before:from-white/60 before:via-transparent before:to-transparent before:opacity-70 before:pointer-events-none 
-              after:absolute after:inset-0 after:rounded-lg after:bg-linear-to-tl after:from-white/30 after:via-transparent after:to-transparent after:opacity-50 after:pointer-events-none antialiased"
-            >
-              {skill}
-            </button>
+            <LiquidGlassButton key={skill}>{skill}</LiquidGlassButton>
           ))}
         </div>
       </section>
