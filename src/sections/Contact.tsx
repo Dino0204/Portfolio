@@ -24,7 +24,31 @@ const SOCIAL_LINKS = [
     href: "https://velog.io/@dino0204/posts",
     colorClass: "text-velog border-velog hover:bg-velog",
   },
+  {
+    label: "Portfolio · Download",
+    href: "/김준혁_포트폴리오.pdf",
+    colorClass:
+      "text-red-500 border-red-500 hover:bg-red-500 hover:text-red-500",
+    download: "김준혁_포트폴리오.pdf",
+  },
 ];
+
+function DownloadIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      className={className}
+    >
+      <path
+        fill="currentColor"
+        d="m12 16l-5-5l1.4-1.45l2.6 2.6V4h2v8.15l2.6-2.6L17 11zm-6 4q-.825 0-1.412-.587T4 18v-3h2v3h12v-3h2v3q0 .825-.587 1.413T18 20z"
+      />
+    </svg>
+  );
+}
 
 function ContactScene() {
   const meshRef = useRef<THREE.Mesh>(null);
@@ -104,14 +128,16 @@ export function Contact() {
         </a>
 
         <div className="flex flex-wrap gap-3 mb-32">
-          {SOCIAL_LINKS.map(({ label, href, colorClass }) => (
+          {SOCIAL_LINKS.map(({ label, href, colorClass, download }) => (
             <a
               key={label}
               href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`inline-flex items-center px-4 py-1.5 rounded-full border text-sm font-medium transition-colors duration-200 hover:text-surface ${colorClass}`}
+              {...(download
+                ? { download }
+                : { target: "_blank", rel: "noopener noreferrer" })}
+              className={`inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border text-sm font-medium transition-colors duration-200 hover:text-surface ${colorClass}`}
             >
+              {download && <DownloadIcon />}
               {label}
             </a>
           ))}
