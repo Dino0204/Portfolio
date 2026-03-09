@@ -11,7 +11,7 @@ const PROJECTS = [
     role: "PM · Frontend Part Leader",
     team: "FE 5 · BE 5 · Design 3 · DevOps 2",
     metric: "160+ 사용자 · 92% 시간 단축",
-    github: "https://github.com/Team-Incube/GSMC-client",
+    github: "https://github.com/Team-Incube/GSMC-client-V3",
     skills: [
       "Next.js 15",
       "React 19",
@@ -28,8 +28,8 @@ const PROJECTS = [
     period: "2024.09 — 2024.11",
     role: "Frontend Developer",
     team: "FE 3 · BE 2 · Design 1",
-    metric: "80+ 사용자",
-    github: "https://github.com/Team-NFTEEN",
+    metric: "광주소프트웨어마이스터고 IDEA.FESTIVAL 우수상 수상",
+    github: "https://github.com/NFTeenn/FE",
     skills: ["React", "TypeScript", "Tanstack Query", "Tailwind CSS"],
   },
   {
@@ -39,8 +39,8 @@ const PROJECTS = [
     period: "2024.03 — 진행중",
     role: "CPO · Frontend Developer",
     team: "FE 6 · BE 6 · Design 1 · App 3 · DevOps 2 · AI 2 · PM 3",
-    metric: "기획 + 개발 리드",
-    github: "https://github.com/DSM-DARAM",
+    metric: "23+명 개발팀 리드",
+    github: "https://github.com/Team-Incube/Flooding-Client-V2",
     skills: ["Next.js", "TypeScript", "Tanstack Query", "Axios"],
   },
 ];
