@@ -69,7 +69,7 @@ function ContactScene() {
       <Environment preset="city" background={false} />
       <RoundedBox
         ref={meshRef}
-        position={[2, 0, 0]}
+        position={[3, 0, 0]}
         rotation={[2, 0, 3]}
         scale={2}
         castShadow
