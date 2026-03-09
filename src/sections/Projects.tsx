@@ -23,7 +23,7 @@ const PROJECTS = [
   },
   {
     num: "02",
-    name: "돈돈이",
+    name: "DONDON",
     description: "게이미피케이션 기반 청소년 금융 지식 관리 플랫폼",
     period: "2024.09 — 2024.11",
     role: "Frontend Developer",
@@ -42,17 +42,6 @@ const PROJECTS = [
     metric: "기획 + 개발 리드",
     github: "https://github.com/DSM-DARAM",
     skills: ["Next.js", "TypeScript", "Tanstack Query", "Axios"],
-  },
-  {
-    num: "04",
-    name: "SSD",
-    description: "IoT 기반 고독사 방지 시스템",
-    period: "2024.06 — 2024.08",
-    role: "HW  Developer",
-    team: "FE 1 · BE 1 · Design 1 · HW 1",
-    metric: "한전 빛가람 우수상",
-    github: "https://github.com/Team-SSD",
-    skills: ["React Native", "Python", "Raspberry Pi"],
   },
 ];
 
@@ -76,11 +65,18 @@ export function Projects() {
         {PROJECTS.map((project, i) => (
           <div
             key={project.name}
-            className={`group flex gap-6 md:gap-10 py-8 md:py-10 sskillger-child ${inView ? "is-visible" : ""}`}
+            className={`relative group flex gap-6 md:gap-10 py-8 md:py-10 sskillger-child ${inView ? "is-visible" : ""}`}
             style={
               { "--sskillger-delay": `${i * 60}ms` } as React.CSSProperties
             }
           >
+            <div className="absolute inset-0 -z-10 pointer-events-none">
+              <img
+                className="transform-3d drop-shadow-lg h-40 absolute -rotate-z-5 translate-x-1/2 translate-y-1/2 right-30"
+                src={`${project.name}_logo.svg`}
+              />
+            </div>
+
             {/* 번호 컬럼 */}
             <span className="text-[11px] font-medium tracking-[0.15em] text-muted pt-2 shrink-0 w-6">
               {project.num}
