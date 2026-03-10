@@ -152,7 +152,7 @@ export function Contact() {
 
         <footer className="border-t border-border pt-8">
           <p className="text-[12px] font-normal leading-normal text-muted">
-            © 2026 김준혁 · Co-Authored-By: Claude Code
+            © 2026 김준혁
           </p>
         </footer>
       </section>
