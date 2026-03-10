@@ -4,6 +4,13 @@ import { useInView } from "../hooks/useInView";
 
 const SIDE_PROJECTS = [
   {
+    name: "Portfolio",
+    description: "개인 포트폴리오 웹사이트",
+    role: "Frontend Developer",
+    github: "https://github.com/Dino0204/Portfolio",
+    skills: ["React Three Fiber", "Tailwind CSS"],
+  },
+  {
     name: "SSD",
     description: "IoT 기반 독거노인 고립 방지 시스템",
     role: "Frontend Developer",
