@@ -7,6 +7,7 @@ import {
   Environment,
 } from "@react-three/drei";
 import { useInView } from "../hooks/useInView";
+import { Download } from "../assets/Download";
 
 const SOCIAL_LINKS = [
   {
@@ -32,23 +33,6 @@ const SOCIAL_LINKS = [
     download: "김준혁포트폴리오.pdf",
   },
 ];
-
-function DownloadIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
-      viewBox="0 0 24 24"
-      className={className}
-    >
-      <path
-        fill="currentColor"
-        d="m12 16l-5-5l1.4-1.45l2.6 2.6V4h2v8.15l2.6-2.6L17 11zm-6 4q-.825 0-1.412-.587T4 18v-3h2v3h12v-3h2v3q0 .825-.587 1.413T18 20z"
-      />
-    </svg>
-  );
-}
 
 function ContactScene() {
   const meshRef = useRef<THREE.Mesh>(null);
@@ -98,11 +82,6 @@ export function Contact() {
 
   return (
     <div className="relative overflow-hidden">
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <Canvas camera={{ position: [0, 0, 6] }} gl={{ alpha: true }}>
-          <ContactScene />
-        </Canvas>
-      </div>
       <section
         id="contact"
         ref={ref as React.RefObject<HTMLElement>}
@@ -144,7 +123,7 @@ export function Contact() {
                 : { target: "_blank", rel: "noopener noreferrer" })}
               className={`inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border text-sm font-medium transition-colors duration-200 hover:text-surface ${colorClass}`}
             >
-              {download && <DownloadIcon />}
+              {download && <Download />}
               {label}
             </a>
           ))}
@@ -156,6 +135,11 @@ export function Contact() {
           </p>
         </footer>
       </section>
+      <div className="h-60 md:h-auto md:absolute md:inset-0 md:z-0 pointer-events-none">
+        <Canvas camera={{ position: [0, 0, 6] }} gl={{ alpha: true }}>
+          <ContactScene />
+        </Canvas>
+      </div>
     </div>
   );
 }

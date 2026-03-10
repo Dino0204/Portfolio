@@ -121,11 +121,6 @@ export function Hero() {
         <ThemeToggle />
       </nav>
       <div className="relative">
-        <div className="absolute inset-0 px-40 z-0 pointer-events-none">
-          <Canvas camera={{ position: [0, 0, 6] }} gl={{ alpha: true }}>
-            <HeroScene scrollProgress={scrollRef} />
-          </Canvas>
-        </div>
         <section
           id="hero"
           className="relative z-10 min-h-screen flex flex-col justify-center px-6 md:px-16 lg:px-24 max-w-5xl pt-16 w-fit"
@@ -181,6 +176,11 @@ export function Hero() {
             </svg>
           </div>
         </section>
+        <div className="h-60 md:h-auto md:absolute md:inset-0 md:z-0 pointer-events-none">
+          <Canvas camera={{ position: [0, 0, 6] }} gl={{ alpha: true }}>
+            <HeroScene scrollProgress={scrollRef} />
+          </Canvas>
+        </div>
       </div>
     </>
   );

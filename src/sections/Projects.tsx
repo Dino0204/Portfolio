@@ -96,7 +96,7 @@ export function Projects() {
           >
             <div className="absolute inset-0 -z-10 pointer-events-none">
               <img
-                className="transform-3d drop-shadow-lg h-40 absolute -rotate-z-5 translate-x-1/2 translate-y-1/2 right-30"
+                className="transform-3d drop-shadow-lg h-40 absolute -rotate-z-5 translate-x-1/2 translate-y-1/2 right-30 hidden sm:block"
                 src={`${project.name}_logo.svg`}
               />
             </div>
