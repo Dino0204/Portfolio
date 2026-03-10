@@ -88,7 +88,7 @@ function HeroScene({
 
       <TorusKnot ref={knotRef} position={[2.8, 0, 0]} scale={0.2}>
         <meshStandardMaterial
-          color={"60a5fa"}
+          color={"#60a5fa"}
           opacity={0.5}
           transparent
           roughness={0.3}
