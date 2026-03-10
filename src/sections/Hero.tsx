@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import {
@@ -7,11 +7,14 @@ import {
   TorusKnot,
   MeshTransmissionMaterial,
   Environment,
-  OrbitControls,
 } from "@react-three/drei";
 import { ThemeToggle } from "../components/ThemeToggle";
 
-function HeroScene() {
+function HeroScene({
+  scrollProgress,
+}: {
+  scrollProgress: React.RefObject<number>;
+}) {
   const mainRef = useRef<THREE.Mesh>(null);
   const wireRef = useRef<THREE.Mesh>(null);
   const knotRef = useRef<THREE.Mesh>(null);
@@ -19,31 +22,44 @@ function HeroScene() {
 
   useFrame(({ clock, pointer }) => {
     const t = clock.elapsedTime;
+    const s = scrollProgress.current;
+
     mouse.current.x += (pointer.x - mouse.current.x) * 0.04;
     mouse.current.y += (pointer.y - mouse.current.y) * 0.04;
 
     if (mainRef.current) {
       mainRef.current.rotation.x = t * 0.03 + mouse.current.y * 0.2;
       mainRef.current.rotation.y = t * 0.05 + mouse.current.x * 0.2;
+      mainRef.current.position.y +=
+        (-s * 3 - mainRef.current.position.y) * 0.05;
+      mainRef.current.position.x +=
+        (2.8 + s * 1.5 - mainRef.current.position.x) * 0.05;
     }
     if (wireRef.current) {
       wireRef.current.rotation.x = -t * 0.025;
       wireRef.current.rotation.y = t * 0.04 + mouse.current.x * 0.1;
+      wireRef.current.position.y +=
+        (-s * 1.5 - 1.4 - wireRef.current.position.y) * 0.04;
+      wireRef.current.position.x +=
+        (1.6 + s * 0.8 - wireRef.current.position.x) * 0.04;
     }
     if (knotRef.current) {
       knotRef.current.rotation.x = t * 0.06;
       knotRef.current.rotation.z = t * 0.04;
+      knotRef.current.position.y +=
+        (-s * 3 - knotRef.current.position.y) * 0.05;
+      knotRef.current.position.x +=
+        (2.8 + s * 1.5 - knotRef.current.position.x) * 0.05;
     }
   });
 
   return (
     <>
-      <OrbitControls />
       <Environment preset="city" background={false} />
       <ambientLight intensity={0.3} />
       <directionalLight position={[5, 5, 5]} intensity={0.6} />
 
-      <Dodecahedron ref={mainRef} position={[2.8, 0, 0]} scale={1.4}>
+      <Dodecahedron ref={mainRef} position={[2.5, 0, 0]} scale={1.4}>
         <MeshTransmissionMaterial
           transmission={1}
           thickness={2.0}
@@ -84,6 +100,21 @@ function HeroScene() {
 }
 
 export function Hero() {
+  const scrollRef = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const section = document.getElementById("hero");
+      if (!section) return;
+      scrollRef.current = Math.max(
+        0,
+        Math.min(1, window.scrollY / section.offsetHeight),
+      );
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-end px-6 py-4">
@@ -92,7 +123,7 @@ export function Hero() {
       <div className="relative">
         <div className="absolute inset-0 px-40 z-0 pointer-events-none">
           <Canvas camera={{ position: [0, 0, 6] }} gl={{ alpha: true }}>
-            <HeroScene />
+            <HeroScene scrollProgress={scrollRef} />
           </Canvas>
         </div>
         <section
