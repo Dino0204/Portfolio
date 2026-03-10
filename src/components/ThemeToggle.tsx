@@ -1,17 +1,26 @@
-import { useTheme } from '../hooks/useTheme'
+import { useTheme } from "../hooks/useTheme";
 
 export function ThemeToggle() {
-  const { theme, toggle } = useTheme()
+  const { theme, toggle } = useTheme();
 
   return (
     <button
       onClick={toggle}
-      aria-label={theme === 'dark' ? '라이트 모드로 전환' : '다크 모드로 전환'}
+      aria-label={theme === "dark" ? "라이트 모드로 전환" : "다크 모드로 전환"}
       className="w-9 h-9 flex items-center justify-center rounded-full border border-border text-muted hover:text-foreground hover:border-foreground transition-colors duration-200 cursor-pointer"
     >
-      {theme === 'dark' ? (
+      {theme === "dark" ? (
         // Sun icon
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
           <circle cx="12" cy="12" r="4" />
           <line x1="12" y1="2" x2="12" y2="4" />
           <line x1="12" y1="20" x2="12" y2="22" />
@@ -24,10 +33,19 @@ export function ThemeToggle() {
         </svg>
       ) : (
         // Moon icon
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
         </svg>
       )}
     </button>
-  )
+  );
 }
