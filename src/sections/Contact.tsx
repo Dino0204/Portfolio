@@ -1,10 +1,11 @@
-import { useRef } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { useRef, useEffect } from "react";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import {
   RoundedBox,
   MeshTransmissionMaterial,
   Environment,
+  CameraControls,
 } from "@react-three/drei";
 import { useInView } from "../hooks/useInView";
 import { Download } from "../assets/Download";
@@ -34,14 +35,38 @@ const SOCIAL_LINKS = [
   },
 ];
 
-function ContactScene() {
+function ContactScene({
+  mouseNorm,
+}: {
+  mouseNorm: React.RefObject<{ x: number; y: number }>;
+}) {
   const meshRef = useRef<THREE.Mesh>(null);
   const mouse = useRef({ x: 0, y: 0 });
+  const controlsRef = useRef<CameraControls>(null);
+  const fitMeshRef = useRef<THREE.Mesh>(null);
+  const { size } = useThree();
+  const isNarrow = size.width < 768;
 
-  useFrame(({ clock, pointer }) => {
+  useEffect(() => {
+    const intro = async () => {
+      if (!controlsRef.current || !fitMeshRef.current) return;
+      controlsRef.current.dolly(-10);
+      controlsRef.current.smoothTime = 1.3;
+      await controlsRef.current.fitToBox(fitMeshRef.current, true);
+    };
+    intro();
+  }, []);
+
+  useEffect(() => {
+    if (controlsRef.current && fitMeshRef.current) {
+      controlsRef.current.fitToBox(fitMeshRef.current, true);
+    }
+  }, [isNarrow]);
+
+  useFrame(({ clock }) => {
     const t = clock.elapsedTime;
-    mouse.current.x += (pointer.x - mouse.current.x) * 0.04;
-    mouse.current.y += (pointer.y - mouse.current.y) * 0.04;
+    mouse.current.x += (mouseNorm.current.x - mouse.current.x) * 0.04;
+    mouse.current.y += (mouseNorm.current.y - mouse.current.y) * 0.04;
     if (meshRef.current) {
       meshRef.current.rotation.x = t * 0.04 + mouse.current.y * 0.25;
       meshRef.current.rotation.y = t * 0.07 + mouse.current.x * 0.25;
@@ -73,12 +98,40 @@ function ContactScene() {
           backsideThickness={-1}
         />
       </RoundedBox>
+
+      <mesh
+        ref={fitMeshRef}
+        scale={isNarrow ? [3, 3, 3] : [6, 4, 4]}
+        position={isNarrow ? [3, 0, 0] : [0, 0, 0]}
+        visible={true}
+      >
+        <boxGeometry args={[1, 1, 1]} />
+        <meshBasicMaterial
+          wireframe
+          visible={false}
+          color="orange"
+          opacity={0.53}
+          transparent
+        />
+      </mesh>
+
+      <CameraControls ref={controlsRef} enabled={false} makeDefault />
     </>
   );
 }
 
 export function Contact() {
   const { ref, inView } = useInView();
+  const mouseNorm = useRef({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      mouseNorm.current.x = (e.clientX / window.innerWidth) * 2 - 1;
+      mouseNorm.current.y = -(e.clientY / window.innerHeight) * 2 + 1;
+    };
+    window.addEventListener("mousemove", handler);
+    return () => window.removeEventListener("mousemove", handler);
+  }, []);
 
   return (
     <div className="relative overflow-hidden">
@@ -137,7 +190,7 @@ export function Contact() {
       </section>
       <div className="h-60 md:h-auto md:absolute md:inset-0 md:z-0 pointer-events-none">
         <Canvas camera={{ position: [0, 0, 6] }} gl={{ alpha: true }}>
-          <ContactScene />
+          <ContactScene mouseNorm={mouseNorm} />
         </Canvas>
       </div>
     </div>
