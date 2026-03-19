@@ -7,6 +7,7 @@ const SIDE_PROJECTS = [
     name: "Portfolio",
     description: "개인 포트폴리오 웹사이트",
     role: "Frontend Developer",
+    url: "https://kimjoonhyeok-portfolio-dino.vercel.app",
     github: "https://github.com/Dino0204/Portfolio",
     skills: ["React Three Fiber", "Tailwind CSS"],
   },
@@ -14,6 +15,7 @@ const SIDE_PROJECTS = [
     name: "SSD",
     description: "IoT 기반 독거노인 고립 방지 시스템",
     role: "Frontend Developer",
+    url: "",
     github: "https://github.com/HangeonCare",
     skills: ["React Native", "Raspberry Pi", "TypeScript"],
   },
@@ -21,6 +23,7 @@ const SIDE_PROJECTS = [
     name: "RE-World",
     description: "Web Based BattleRoyale FPS",
     role: "FullStack Developer",
+    url: "",
     github: "https://github.com/Dino0204/RE-World",
     skills: ["React Three Fiber", "Elysia.js", "Zod"],
   },
@@ -35,6 +38,7 @@ const PROJECTS = [
     role: "PM · Frontend Part Leader",
     team: "FE 5 · BE 5 · Design 3 · DevOps 2",
     metric: "160+ 사용자 · 92% 시간 단축",
+    url: "https://gsmc.io.kr",
     github: "https://github.com/Team-Incube/GSMC-client-V3",
     skills: [
       "Next.js 15",
@@ -53,6 +57,7 @@ const PROJECTS = [
     role: "Frontend Developer",
     team: "FE 3 · BE 2 · Design 1",
     metric: "광주소프트웨어마이스터고 IDEA.FESTIVAL 우수상 수상",
+    url: "",
     github: "https://github.com/NFTeenn/FE",
     skills: ["React", "TypeScript", "Tanstack Query", "Tailwind CSS"],
   },
@@ -64,10 +69,13 @@ const PROJECTS = [
     role: "CPO · Frontend Developer",
     team: "FE 6 · BE 6 · Design 1 · App 3 · DevOps 2 · AI 2 · PM 3",
     metric: "23+명 개발팀 리드",
+    url: "https://flooding.kr",
     github: "https://github.com/Team-Incube/Flooding-Client-V2",
     skills: ["Next.js", "TypeScript", "Tanstack Query", "Axios"],
   },
 ];
+
+const getUrl = (p: { url?: string; github: string }) => p.url || p.github;
 
 export function Projects() {
   const { ref, inView } = useInView();
@@ -109,9 +117,25 @@ export function Projects() {
             {/* 콘텐츠 */}
             <div className="flex-1 min-w-0">
               <div className="flex items-start justify-between gap-4 mb-3">
-                <h3 className="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-none text-foreground group-hover:text-accent transition-colors duration-300">
+                <a
+                  href={getUrl(project)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-[clamp(2rem,5vw,3.5rem)] font-bold leading-none text-foreground group-hover:text-accent transition-colors duration-300"
+                >
                   {project.name}
-                </h3>
+                  <svg
+                    width="0.5em"
+                    height="0.5em"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    className="opacity-0 group-hover:opacity-100 translate-x-0 group-hover:translate-x-1 transition-all duration-300"
+                  >
+                    <path d="M7 17L17 7M17 7H7M17 7v10" />
+                  </svg>
+                </a>
                 <a
                   href={project.github}
                   target="_blank"
@@ -166,9 +190,25 @@ export function Projects() {
               }
             >
               <div className="flex items-start justify-between gap-2 mb-2">
-                <h3 className="text-[18px] font-semibold text-foreground group-hover:text-accent transition-colors duration-300">
+                <a
+                  href={getUrl(project)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-[18px] font-semibold text-foreground group-hover:text-accent transition-colors duration-300"
+                >
                   {project.name}
-                </h3>
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    className="opacity-0 group-hover:opacity-100 translate-x-0 group-hover:translate-x-1 transition-all duration-300"
+                  >
+                    <path d="M7 17L17 7M17 7H7M17 7v10" />
+                  </svg>
+                </a>
                 {project.github && (
                   <a
                     href={project.github}
