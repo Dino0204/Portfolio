@@ -2,6 +2,12 @@ import { useInView } from "../hooks/useInView";
 
 const ACTIVITIES = [
   {
+    title: "AI EXPO 전시",
+    period: "2026.05",
+    description:
+      "기업 관계자분들 앞에서 플러딩 프로젝트를 시연하며 현장 커뮤니케이션 경험을 쌓았습니다.",
+  },
+  {
     title: "제 28회 앱잼",
     period: "2024",
     description:
